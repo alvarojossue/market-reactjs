@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = (props) => {
+const Header = (props) => { // This is a stateless component. It can only do one thing: render();
 	return (
 		<header className="top">
 			<h1>

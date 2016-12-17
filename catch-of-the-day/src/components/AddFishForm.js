@@ -5,7 +5,7 @@ class AddFishForm extends React.Component {
 		event.preventDefault();
 		console.log("We are about to create a fish")
 
-		const fish = {
+		const fish = { // Saving all this inputs from the user into an object to share it with other components
 			name: this.name.value,
 			price: this.price.value,
 			status: this.status.value,
@@ -20,8 +20,8 @@ class AddFishForm extends React.Component {
 
 	render(){
 		return (
-			<form className="fish-edit" onSubmit={(e) => this.createFish(e)}>
-				<input ref={(input) => {this.name = input}} type="text" placeholder="Fish Name"/>
+			<form className="fish-edit" onSubmit={(e) => this.createFish(e)}> { /* On submit, it executes the method createFish */}
+				<input ref={(input) => {this.name = input}} type="text" placeholder="Fish Name"/> { /* It uses ref to be able to reuse the info from each input in a method outside render(); */}
 				<input ref={(input) => {this.price = input}} type="text" placeholder="Fish Price"/>
 				<select ref={(input) => {this.status = input}}>
 					<option value="available">Fresh!</option>
