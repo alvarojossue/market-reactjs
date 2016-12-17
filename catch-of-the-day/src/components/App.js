@@ -5,6 +5,17 @@ import Inventory from './Inventory'
 
 
 class App extends React.Component {
+
+	constructor(){
+		super();
+		// Initial state. If ES6 is not being used, this is getInitialState (React.createClass)
+		this.state = {
+			fishes: {},
+			order: {}
+		}
+	}
+
+
 	render(){
 		return (
 			<div className="catch-of-the-day">

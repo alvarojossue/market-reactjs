@@ -13,6 +13,8 @@ class AddFishForm extends React.Component {
 			image: this.image.value,
 		}
 
+		// This information is going to be reused in different components, so it's recommended to create a state in a parent component (in this case App.js)
+
 		console.log(fish);
 
 
