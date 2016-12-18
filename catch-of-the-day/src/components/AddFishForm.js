@@ -15,14 +15,13 @@ class AddFishForm extends React.Component {
 
 		// This information is going to be reused in different components, so it's recommended to create a state in a parent component (in this case App.js)
 
-		console.log(fish);
-
-
+		this.props.addFish(fish); // Calls the addFish method declared in App.js and passed as props in <Inventory /> and <AddFishForm /> (children of App)
+		this.fishForm.reset();
 	}
 
 	render(){
 		return (
-			<form className="fish-edit" onSubmit={(e) => this.createFish(e)}> { /* On submit, it executes the method createFish */}
+			<form ref={(input) => {this.fishForm = input}} className="fish-edit" onSubmit={(e) => this.createFish(e)}> { /* On submit, it executes the method createFish */}
 				<input ref={(input) => {this.name = input}} type="text" placeholder="Fish Name"/> { /* It uses ref to be able to reuse the info from each input in a method outside render(); */}
 				<input ref={(input) => {this.price = input}} type="text" placeholder="Fish Price"/>
 				<select ref={(input) => {this.status = input}}>
