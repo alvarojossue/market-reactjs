@@ -13,6 +13,7 @@ class App extends React.Component {
 
 		this.addFish = this.addFish.bind(this); // It makes the addFish method available to be used in this component
 		this.loadSamples = this.loadSamples.bind(this);
+		this.addToOrder = this.addToOrder.bind(this);
 		// Initial state. If ES6 is not being used, this is getInitialState (React.createClass)
 		this.state = {
 			fishes: {},
@@ -34,6 +35,11 @@ class App extends React.Component {
 		this.setState({fishes : sampleFishes})
 	}
 
+	addToOrder(key) {
+		const order = {...this.state.order}; // Copy of the state
+		order[key] = order[key] + 1 || 1; // We update the specific fish order
+		this.setState({ order : order }) // Set the new state
+	}
 
 	render(){
 		return (
@@ -44,7 +50,7 @@ class App extends React.Component {
 						{
 							Object
 								.keys(this.state.fishes) // To transform the object into an array
-								.map(key => <Fish key={key} details={this.state.fishes[key]}/>) // Loop through the array and returns a list of components for each fish
+								.map(key => <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder}/>) // Loop through the array and returns a list of components for each fish
 						}
 					</ul>
 				</div>
